@@ -1,0 +1,14 @@
+---
+title: "AI Scratchpad"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+Welcome to the AI Scratchpad! This blog is my public notebook for demystifying the world of AI and Machine Learning. Here, I learn by doing—building models, testing tools, and documenting the entire process. My goal is to create practical, hands-on guides that cut through the hype. My focus is always on finding the clearest path to a working solution. I hope what I learn is as useful to you as it is to me.

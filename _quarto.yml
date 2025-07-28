@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Data in Two Tongues"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/
+      - icon: twitter
+        href: https://twitter.com
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+engine: knitr
+knitr:
+  opts_chunk: 
+    engine.path:
+      python: /usr/bin/python3
