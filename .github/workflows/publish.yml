@@ -25,8 +25,7 @@ jobs:
         uses: r-lib/actions/setup-r@v2
 
       - name: Install R Dependencies
-        run: |
-          R -e "install.packages('tidymodels')"
+        run: R -e "install.packages('tidymodels')"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,6 +37,12 @@ jobs:
 
       - name: Render Quarto Website
         uses: quarto-dev/quarto-actions/render@v2
+
+      # This is the new, crucial step you were missing
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
