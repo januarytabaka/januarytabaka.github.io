@@ -12,7 +12,7 @@ about:
       href: https://www.linkedin.com/in/januarytabaka/
     - icon: github
       text: Github
-      href: ttps://github.com/januarytabaka
+      href: https://github.com/januarytabaka
 
 ---
 
@@ -21,15 +21,6 @@ about:
 Thank you for visiting! In the rapidly evolving world of AI, theory is everywhere, but practical, hands-on understanding is what truly matters. This blog is my **AI Scratchpad**—a public notebook where I learn by doing.
 
 My goal is to demystify the complex and cut through the hype by building, testing, and exploring real-world AI and Machine Learning concepts.
-
-### What You'll Find Here
-
-This is a place for practical exploration. You can expect content like:
-
-*   **Step-by-Step Tutorials:** From fundamental machine learning models to fine-tuning the latest Large Language Models (LLMs).
-*   **A Bilingual Approach:** As a data scientist fluent in both R and Python, I'll often tackle problems using both ecosystems, showing the unique strengths of each tool for the job.
-*   **Tool & Tech Deep Dives:** Exploring everything from ML in the database (like Oracle SQL) to new libraries that make our lives easier.
-*   **Real-World Projects:** Documenting the process of building small, end-to-end AI applications from scratch.
 
 This blog is my commitment to learning in public. I hope my experiments and findings are as useful to you as they are to me.
 
