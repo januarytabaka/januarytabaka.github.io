@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Data in Two Tongues"
+  title: "AI Scratchpad"
   navbar:
     right:
       - about.qmd
