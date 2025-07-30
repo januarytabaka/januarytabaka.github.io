@@ -33,7 +33,7 @@ jobs:
           python-version: '3.11'
       
       - name: Install Python Dependencies
-        run: pip install jupyter scikit-learn pandas matplotlib seaborn PyYAML
+        run: pip install scikit-learn pandas matplotlib seaborn
 
       - name: Render Quarto Website
         uses: quarto-dev/quarto-actions/render@v2
