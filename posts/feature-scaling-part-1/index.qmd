@@ -4,7 +4,7 @@ author: "January Tabaka"
 date: "2025-07-30"
 categories: [Fundamentals, Data Preprocessing, Python, R]
 image: "dist_data_landscape.png"
-draft: true
+draft: false
 ---
 
 ## The Unseen Bias in Data
