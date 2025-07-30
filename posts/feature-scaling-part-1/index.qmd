@@ -63,6 +63,7 @@ Here's what each stage of visualization shows:
 ```{python}
 #| label: py-three-plots-hidden
 #| echo: false
+#| eval: true
 #| fig-cap: "The distribution of housing features. at three stages: raw, centered, and fully scaled. Notice how centering shifts the data, but only the final scaling step corrects the distortion."
 
 import numpy as np
@@ -112,7 +113,6 @@ ax[2].set_title(r"Z-score normalized")
 ax[2].axis('equal')
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])
 fig.suptitle("distribution of features before, during, after normalization")
-plt.show()
 ```
 
 Models that rely on calculating distances (like **K-Nearest Neighbors**) or use gradient descent for optimization (like **Linear Regression** and **Neural Networks**) are the most affected by the scale of their features.
