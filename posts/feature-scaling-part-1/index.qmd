@@ -2,7 +2,7 @@
 title: "Feature Scaling Part 1: When (and Why) to Scale Data in Machine Learning"
 author: "January Tabaka"
 date: "2025-07-30"
-categories: [Fundamentals, Data Preprocessing, Python, R]
+categories: [Fundamentals, Data Preprocessing, Scaling]
 image: "dist_data_landscape.png"
 draft: false
 ---
@@ -61,7 +61,7 @@ Here's what each stage of visualization shows:
 *   **3. After Scaling (Right):** This is the final transformation. After dividing by the standard deviation, the variance of both features becomes equal. The data cloud is now a circular cloud of points. The distortion is gone, and the true underlying structure of the data is finally revealed and ready for a machine learning model.
 
 ```{python}
-#| label: py-three-plots-hidden
+#| label: py-scaling
 #| echo: false
 #| eval: true
 #| fig-cap: "The distribution of housing features. at three stages: raw, centered, and fully scaled. Notice how centering shifts the data, but only the final scaling step corrects the distortion."
@@ -126,7 +126,7 @@ Curious how the plots above were generated? Here is the Python code that loads t
 It is inspired by the "Feature Scaling and Learning Rate (Multi-variable)" lab found in the Machine Learning Specialization course Supervised Machine Learning: Regression and Classification by the [deeplearning.ai](https://www.deeplearning.ai/), taught by professor Andrew Ng. 
 
 ```{python}
-#| label: py-three-plots
+#| label: py-scaling-code
 #| echo: true
 #| eval: false
 #| fig-cap: "The distribution of housing features. at three stages: raw, centered, and fully scaled. Notice how centering shifts the data, but only the final scaling step corrects the distortion."
