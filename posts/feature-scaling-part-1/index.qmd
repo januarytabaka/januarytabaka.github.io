@@ -58,7 +58,7 @@ Here's what each stage of visualization shows:
 
 *   **2. After Centering (Middle):** This plot shows the data after we subtract the mean from each feature. The data  has shifted to be centered around the origin (0,0), but the fundamental problem remains. The plot is still a distorted line, and the `Population` feature continues to dominate the x-axis.
 
-*   **3. After Scaling (Right):** This is the final transformation. After dividing by the standard deviation, the variance of both features becomes equal. The data cloud is now a circular cloud of points. The distortion is gone, and the true underlying structure of the data is finally revealed and ready for a machine learning model.
+*   **3. After Scaling (Right):** This is the final transformation. After dividing by the standard deviation, the variance of both features becomes equal. The data is now a circular cloud of points. The distortion is gone, and the true underlying structure of the data is finally revealed and ready for a machine learning model.
 
 ```{python}
 #| label: py-scaling
@@ -113,6 +113,7 @@ ax[2].set_title(r"Z-score normalized")
 ax[2].axis('equal')
 plt.tight_layout(rect=[0, 0.03, 1, 0.95])
 fig.suptitle("distribution of features before, during, after normalization")
+plt.show()
 ```
 
 Models that rely on calculating distances (like **K-Nearest Neighbors**) or use gradient descent for optimization (like **Linear Regression** and **Neural Networks**) are the most affected by the scale of their features.
