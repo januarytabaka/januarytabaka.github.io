@@ -10,6 +10,15 @@ website:
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
+  comments:
+    giscus:
+      repo: januarytabaka/januarytabaka.github.io
+      repo-id: "R_kgDOPTiMRA"
+      category: "General"
+      category-id: "DIC_kwDOPTiMRM4CtgfQ"
+      mapping: "pathname"
+      reactions-enabled: true
+      theme: "preferred_color_scheme"
 format:
   html:
     theme:

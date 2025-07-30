@@ -16,16 +16,8 @@ about:
 
 ---
 
-## Welcome to AI Scratchpad
-
-Thank you for visiting! In the rapidly evolving world of AI, theory is everywhere, but practical, hands-on understanding is what truly matters. This blog is my **AI Scratchpad**—a public notebook where I learn by doing.
-
-My goal is to demystify the complex and cut through the hype by building, testing, and exploring real-world AI and Machine Learning concepts.
-
-This blog is my commitment to learning in public. I hope my experiments and findings are as useful to you as they are to me.
-
 ### About Me
 
-My name is January Tabaka. I created this project to document my learning and connect with others who are on a similar path.
+My name is January Tabaka. I started out as a coder years ago, eventually found my way into databases, and from there, I dove headfirst into the world of data. AI Scratchpad is my way of documenting what I learn and connecting with others on a similar journey.
 
-Please feel free to connect with me on LinkedIn or follow my work on GitHub!
+Please feel free to connect with me on LinkedIn!
