@@ -13,7 +13,7 @@ When you first load a dataset for a real-world problem, you'll immediately notic
 
 
 * For a **financial fraud detection** model, you might have:
-    - a user's **transaction amount** in Euros (e.g., 5.00 – 20,000.00).
+    - a user's **transaction amount** in (e.g., 5.00 – 20,000.00).
     - the **number of transactions they've made in the last 24 hours** (e.g., 1 – 50).
     - the **time since their last login**, measured in seconds (e.g., 300 – 86,400).
 

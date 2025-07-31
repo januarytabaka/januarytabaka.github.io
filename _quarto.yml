@@ -3,6 +3,9 @@ project:
 
 website:
   title: "AI Scratchpad"
+  google-analytics:
+    tracking-id: "G-7FFXK7K76V"
+    storage: none
   navbar:
     right:
       - about.qmd
