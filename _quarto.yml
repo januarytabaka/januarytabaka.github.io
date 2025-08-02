@@ -26,6 +26,13 @@ format:
       - brand
     css: styles.css
     include-in-header: _includes/matomo.html
+    security:
+      content-security-policy:
+        # Allows scripts from your own site and giscus
+        script-src:
+          - "'self'"
+          - "https://giscus.app"
+      referrer-policy: "no-referrer"
 
 engine: knitr
 knitr:
