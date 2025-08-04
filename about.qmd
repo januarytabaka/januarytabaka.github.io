@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "About Me"
 image: images/profile.jpeg
 about:
   template: jolla
@@ -16,8 +16,14 @@ about:
 
 ---
 
-### About Me
-
 My name is January Tabaka. I started out as a coder years ago, eventually found my way into databases, and from there, I dove headfirst into the world of data. AI Scratchpad is my way of documenting what I learn and connecting with others on a similar journey.
 
 Please feel free to connect with me on LinkedIn!
+
+---
+
+## Copyright and Licensing
+
+**Code:** All code snippets and scripts in this blog are licensed under the [MIT License](https://github.com/januarytabaka/januarytabaka.github.io/blob/main/LICENSE), unless otherwise stated. You are free to use, modify, and distribute the code for any purpose, with attribution.
+
+**Content:** The written content and images on this blog are licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/). You are welcome to share and adapt the content, provided you give appropriate credit and share your adaptations under the same license.
