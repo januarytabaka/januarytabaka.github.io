@@ -15,11 +15,11 @@ website:
         text: "Home"
   page-footer:
     center: 
-      - text: "About"
-        href: /en/about.html
+      - text: "About Me"
+        href: about.qmd
       - text: "&nbsp; | &nbsp;"
       - text: "Privacy Policy"
-        href: /en/privacy.html
+        href: privacy.qmd
 format:
   html:
     theme:
