@@ -4,10 +4,13 @@ project:
 
 website:
   title: "AI Scratchpad (ES)"
-  sidebar:
-    style: "docked"
-    search: true
-    contents:
+  navbar:
+    # This is the new block for the "Back to Portal" link
+    left:
+      - icon: house-door-fill # A Bootstrap icon for "home"
+        href: https://aiscratchpad.com/
+        text: "Home"
+    right:
       - text: "Sobre Mí"
         href: about.qmd
       - text: "Política de Privacidad"

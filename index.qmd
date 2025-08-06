@@ -1,15 +1,61 @@
 ---
-title: "AI Scratchpad"
-listing:
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-  include:
-    lang: en
+title: "Welcome to AI Scratchpad"
 page-layout: full
-title-block-banner: true
 ---
 
-**Welcome to AI Scratchpad**
+<style>
+  .language-card {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+  }
+  .language-card:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+  }
+  .language-card h2 {
+    margin-top: 0;
+  }
+  .language-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<br>
+<br>
+
+## Please select your language:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+<a href="/en/">
+<div class="language-card">
+  <h2>English</h2>
+  <p>Explore the blog in English, featuring tutorials on AI, Machine Learning, Python, and R.</p>
+</div>
+</a>
+:::
+
+::: {.g-col-12 .g-col-md-4}
+<a href="/es/">
+<div class="language-card">
+  <h2>Español</h2>
+  <p>Explora el blog en español, con tutoriales sobre IA, Machine Learning, Python y R.</p>
+</div>
+</a>
+:::
+
+::: {.g-col-12 .g-col-md-4}
+<a href="/ca/">
+<div class="language-card">
+  <h2>Català</h2>
+  <p>Explora el blog en català, amb tutorials sobre IA, Aprenentatge Automàtic, Python i R.</p>
+</div>
+</a>
+:::
+
+:::
