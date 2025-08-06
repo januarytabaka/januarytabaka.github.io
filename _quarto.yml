@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: _site
 
+extensions:
+  - quarto-ext/iconify
+
 website:
   title: "AI Scratchpad"
   navbar:

@@ -10,17 +10,31 @@ page-layout: full
     padding: 2rem;
     text-align: center;
     transition: all 0.2s ease-in-out;
+    height: 100%;
   }
   .language-card:hover {
     transform: scale(1.05);
     border-color: #007bff;
   }
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .card-link:hover h2 {
+    text-decoration: none;
+  }
   .language-card h2 {
     margin-top: 0;
+    text-decoration: none;
   }
   .language-card a {
     text-decoration: none;
     color: inherit;
+  }
+  .language-card .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #000000ff;
   }
 </style>
 
@@ -32,30 +46,31 @@ page-layout: full
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
-<a href="/en/">
 <div class="language-card">
-  <h2>English</h2>
+  <div class="card-icon">{{< iconify ph:translate-bold >}}</div>
+  <a href="/en/"><h2>English</h2></a>
   <p>Explore the blog in English, featuring tutorials on AI, Machine Learning, Python, and R.</p>
 </div>
-</a>
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-<a href="/es/">
+
 <div class="language-card">
-  <h2>Español</h2>
+  <div class="card-icon">{{< iconify ci:globe >}}</div>
+  <a href="/es/"><h2>Español</h2></a>
   <p>Explora el blog en español, con tutoriales sobre IA, Machine Learning, Python y R.</p>
 </div>
-</a>
+
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-<a href="/cat/">
+
 <div class="language-card">
-  <h2>Català</h2>
+  <div class="card-icon">{{< iconify mdi:compass-rose >}}</div>
+  <a href="/cat/"><h2>Català</h2></a>
   <p>Explora el blog en català, amb tutorials sobre IA, Aprenentatge Automàtic, Python i R.</p>
 </div>
-</a>
+
 :::
 
 :::
