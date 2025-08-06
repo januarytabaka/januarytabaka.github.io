@@ -1,0 +1,275 @@
+---
+title: "Escalat de Característiques Part 1: Quan (i Per Què) Escalar les Dades en Aprenentatge Automàtic"
+author: "January Tabaka"
+date: "2025-08-06"
+categories: [Fonaments, Preprocessament de Dades, Escalat]
+image: "/images/dist_data_landscape.png"
+draft: false
+lang: cat
+---
+
+## El Biaix Invisible en les Dades
+
+Quan carregues un conjunt de dades per a un problema del món real, notaràs immediatament que les característiques tenen totes les formes i mides.
+
+* Per a un model de **detecció de frau financer**, podries tenir:
+    - **l'import de la transacció** d’un usuari (per exemple, 5,00 – 20.000,00),
+    - el **nombre de transaccions realitzades en les últimes 24 hores** (per exemple, 1 – 50),
+    - el **temps des de l’últim inici de sessió**, mesurat en segons (per exemple, 300 – 86.400).
+
+:::{.callout-note collapse="true"}
+
+## Més exemples
+
+* En **Anàlisi de Comerç Electrònic**
+    - una columna podria representar **el nombre d’articles al carret de la compra de l’usuari** (per exemple, 1-20),
+    - una altra **el valor total de la compra** en cèntims (per exemple, 500-50.000),
+    - i una tercera l’**índex de valor del client al llarg del temps** (per exemple, 0-1)
+
+* Per a la **participació d’usuaris en SaaS i la predicció de cancel·lació**
+    - una característica podria representar el **nombre d’inicis de sessió de l’usuari aquest mes** (per exemple, 5-100),
+    - una altra els **minuts totals que ha passat a la plataforma** (per exemple, 60-10.000),
+    - i una tercera la **probabilitat de cancel·lació calculada** (per exemple, 0,05-0,95)
+
+* En un escenari industrial de **Manteniment Predictiu**
+    - podríem tenir la **temperatura** d’una màquina en graus Celsius (per exemple, 40-90) com una característica,
+    - una altra serien les seves **vibracions** en Hz (per exemple, 10-2.000),
+    - i una tercera les seves **hores totals d’operació** (per exemple, 5.000-50.000)
+
+:::
+
+En aquest escenari, les característiques existeixen en escales completament diferents. Un principiant podria sentir-se temptat a introduir aquestes dades directament en un model d’aprenentatge automàtic, però això seria un error crític. Molts dels algoritmes més comuns i potents són sensibles a l’escala de les característiques d’entrada. Sense una etapa de preprocessament, el model podria veure’s desproporcionadament influenciat per característiques de gran magnitud, reduint-ne la precisió. Aquesta etapa és **l’escalat de característiques**.
+
+## Per Què És Tan Important l’Escalat: Una Analogia Visual
+
+Per entendre per què importa l’escalat, vegem algunes dades.
+
+Per il·lustrar-ho, utilitzarem un conjunt de dades reals sobre el mercat immobiliari de Barcelona. Aquest conjunt de dades va ser creat per Xuan Zheng i Albert Casanova com a part del Màster en Ciència de Dades de la Universitat Oberta de Catalunya.
+
+El conjunt de dades complet, titulat "Housing Barcelona", està allotjat a Zenodo (DOI: [10.5281/zenodo.6436016](https://doi.org/10.5281/zenodo.6436016)) i està llicenciat sota [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode). Per a aquesta anàlisi, s'ha utilitzat una mostra aleatòria de les dades originals.
+
+És una manera potent de visualitzar els dos passos clau del procés d’estandardització.
+
+Això és el que mostra cada etapa de la visualització:
+
+* **1. Dades Originals (Esquerra):** Aquestes són les dades originals de la nostra mostra. El gràfic està dramàticament distorsionat, apareixent com una línia horitzontal fina. Com que la característica `Preu (€)` té un rang i una variància molt més grans que `Superfície (m²)`, la veritable relació lineal entre les característiques queda completament oculta.
+
+* **2. Després del Centrament (Centre):** Aquest gràfic mostra les dades després de restar la mitjana. Tot i que el núvol de dades s’ha desplaçat per centrar-se a l’origen (0,0), el problema fonamental de distorsió persisteix. El gràfic continua mostrant una línia horitzontal, i la característica `Preu (€)` continua dominant l’eix x.
+
+* **3. Després de l’Escalat (Dreta):** Aquesta és la transformació final. Després de dividir per la desviació estàndard, la variància de totes dues característiques s’iguala. La distorsió ha desaparegut, i el núvol de dades revela ara una **clara tendència diagonal**, descobrint la correlació entre el preu i la superfície.
+
+```{python}
+#| label: py-scaling
+#| echo: false
+#| eval: true
+#| fig-cap: "La distribució de les característiques d’habitatges en tres etapes: originals, centrades i completament escalades. Observa com el centrament desplaça les dades, però només el pas final d’escalat corregeix la distorsió."
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Carregar el conjunt de dades
+X_train = pd.read_csv('../../data/housing-barcelona-sampled.csv')
+
+# Calcular la mitjana (mu) i la desviació estàndard (sigma) per a cada característica
+mu     = np.mean(X_train,axis=0)   
+sigma  = np.std(X_train,axis=0)
+
+# Centrar les dades restant la mitjana
+X_mean = (X_train - mu)
+
+# Normalitzar les dades dividint per la desviació estàndard
+X_norm = (X_train - mu)/sigma
+
+# Definir els noms de les característiques per a les etiquetes"
+feature_x = 'price'
+feature_y = 'space'
+X_features = ['Preu (€)', 'Superfície (m²)']
+
+fig, ax = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# Gràfic 1: Dades Originals
+ax[0].scatter(X_train[feature_x], X_train[feature_y])
+ax[0].set_xlabel(X_features[0])
+ax[0].set_ylabel(X_features[1])
+ax[0].set_title('1. Dades Originals')
+ax[0].axis('equal')
+ax[0].grid(True)
+
+# Gràfic 2: Dades Centrades
+ax[1].scatter(X_mean[feature_x], X_mean[feature_y])
+ax[1].set_xlabel(X_features[0])
+ax[1].set_ylabel(X_features[1])
+ax[1].set_title(r'2. Després del Centrament (X - $\mu$)')
+ax[1].axis('equal')
+ax[1].grid(True)
+
+# Gràfic 3: Dades Escalades
+ax[2].scatter(X_norm[feature_x], X_norm[feature_y])
+ax[2].set_xlabel(X_features[0])
+ax[2].set_ylabel(X_features[1])
+ax[2].set_title(r'3. Després de l’Escalat ((X - $\mu$) / $\sigma$)')
+ax[2].axis('equal')
+ax[2].grid(True)
+
+fig.suptitle('L’Efecte Pas a Pas de l’Estandardització', fontsize=16)
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.show()
+```
+
+Els models que depenen del càlcul de distàncies (com **k-NN (o veí més proper)**) o que utilitzen l'algorisme del gradient descendent per optimitzar (com la **Regressió Lineal** i les **Xarxes Neuronals**) són els més afectats per l’escala de les seves característiques.
+
+:::{.callout-tip collapse="true"}
+
+## Codi per als Gràfics
+
+A continuació es presenta el codi Python que carrega les dades i crea les visualitzacions. El procés té dues parts: primer, preparar el conjunt de dades, i segon, generar els gràfics.
+
+### 1. Preparació de les Dades
+
+El codi dels gràfics utilitza un fitxer de mostra anomenat `housing-barcelona-sampled.csv`. Per crear-lo, primer vaig descarregar el conjunt de dades complet. Després, vaig utilitzar aquest script de Python amb `pandas` per extreure una mostra aleatòria de 100 files i guardar aquesta mostra en un nou fitxer CSV.
+
+Aquest fitxer de mostra és el que s’inclou al [repositori de GitHub del blog](https://github.com/januarytabaka/januarytabaka.github.io) perquè l’exemple sigui completament reproduïble.
+
+```{python}
+#| label: py-data-prep-code
+#| echo: true
+#| eval: false
+
+import pandas as pd
+
+# Carregar el conjunt de dades complet
+full_df = pd.read_csv("housing-barcelona.csv")
+
+# Seleccionar les columnes d’interès
+df = full_df[['space', 'price']].copy()
+
+# Netejar la columna 'space'
+# - .str.replace(' m²', ''): Elimina el símbol " m²"
+# - pd.to_numeric(...): Converteix la cadena de text en un nombre
+df['space'] = pd.to_numeric(df['space'].str.replace(' m²', '', regex=False), errors='coerce')
+
+# Netejar la columna 'price'
+# - .str.replace('.', '', regex=False): Elimina els separadors de milers (punts)
+# - .str.replace('€', '', regex=False): Elimina el símbol de l’euro
+# - pd.to_numeric(...): Converteix la cadena de text en un nombre
+df['price'] = pd.to_numeric(
+    df['price'].str.replace('.', '', regex=False).str.replace('€', '', regex=False), 
+    errors='coerce'
+)
+
+# Eliminar qualsevol fila que tingui valors nuls després de la neteja
+#   'errors=coerce' converteix els valors que no es poden transformar en NaN (Not a Number)
+clean_df = df.dropna()
+
+# Agafar una mostra aleatòria reproductible de 100 propietats
+sampled_df = clean_df.sample(n=100, random_state=8)
+
+# Desar la mostra neta en un nou fitxer CSV
+sampled_df.to_csv('housing-barcelona-sampled.csv', index=False)
+```
+
+### 2. Codi de Visualització
+
+Un cop tenim el nostre fitxer de mostra, el següent codi (que és el que s’executa per generar els gràfics en aquesta pàgina) carrega `housing-barcelona-sampled.csv` i crea la visualització en tres passos.
+
+Està inspirat en el laboratori "Feature Scaling and Learning Rate (Multi-variable)" del curs *Supervised Machine Learning: Regression and Classification* de [deeplearning.ai](https://www.deeplearning.ai/), impartit pel professor Andrew Ng.
+
+```{python}
+#| label: py-scaling-code
+#| echo: true
+#| eval: false
+#| fig-cap: "La distribució de les característiques d’habitatges en tres etapes: originals, centrades i completament escalades. Observa com el centrament desplaça les dades, però només el pas final d’escalat corregeix la distorsió."
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Carregar el conjunt de dades
+X_train = pd.read_csv('../../data/housing-barcelona-sampled.csv')
+
+# Calcular la mitjana (mu) i la desviació estàndard (sigma) per a cada característica
+mu     = np.mean(X_train,axis=0)   
+sigma  = np.std(X_train,axis=0)
+
+# Centrar les dades restant la mitjana
+X_mean = (X_train - mu)
+
+# Normalitzar les dades dividint per la desviació estàndard
+X_norm = (X_train - mu)/sigma
+
+# Definir els noms de les característiques per a les etiquetes"
+feature_x = 'price'
+feature_y = 'space'
+X_features = ['Preu (€)', 'Superfície (m²)']
+
+fig, ax = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# Gràfic 1: Dades Originals
+ax[0].scatter(X_train[feature_x], X_train[feature_y])
+ax[0].set_xlabel(X_features[0])
+ax[0].set_ylabel(X_features[1])
+ax[0].set_title('1. Dades Originals')
+ax[0].axis('equal')
+ax[0].grid(True)
+
+# Gràfic 2: Dades Centrades
+ax[1].scatter(X_mean[feature_x], X_mean[feature_y])
+ax[1].set_xlabel(X_features[0])
+ax[1].set_ylabel(X_features[1])
+ax[1].set_title(r'2. Després del Centrament (X - $\mu$)')
+ax[1].axis('equal')
+ax[1].grid(True)
+
+# Gràfic 3: Dades Escalades
+ax[2].scatter(X_norm[feature_x], X_norm[feature_y])
+ax[2].set_xlabel(X_features[0])
+ax[2].set_ylabel(X_features[1])
+ax[2].set_title(r'3. Després de l’Escalat ((X - $\mu$) / $\sigma$)')
+ax[2].axis('equal')
+ax[2].grid(True)
+
+fig.suptitle('L’Efecte Pas a Pas de l’Estandardització', fontsize=16)
+plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+plt.show()
+```
+
+:::
+
+:::{.callout-important collapse="true"}
+
+## Una Mirada Més Profunda: Optimització i Regularització
+
+Més enllà de la intuïció visual, hi ha dues raons tècniques clau per les quals l’escalat és tan crític per a alguns models.
+
+#### Regressió Lineal: Optimització vs. Interpretabilitat
+
+La **Regressió Lineal** es beneficia de l’escalat, però el “per què” depèn de com s’entrena el model.
+
+* Amb **l'algorisme del gradient descendent**, l’escalat és essencial. Les característiques no escalades generen una superfície de pèrdua esbiaixada i el·líptica, cosa que fa que l’optimitzador avanci lentament en ziga-zaga cap al mínim. L’escalat transforma la superfície en una forma més uniforme, permetent una convergència més ràpida i estable.
+
+* Amb l’**equació normal**, l’escalat no és necessari per correcció matemàtica, però continua sent molt recomanable per **interpretabilitat**. Sense escalat, les magnituds dels coeficients reflecteixen les unitats de les característiques i no són directament comparables. L’estandardització permet comparar de manera significativa la mida dels coeficients.
+
+#### Regularització: Garantir una Penalització Equitativa
+
+L’escalat es torna **obligatori** quan s’utilitza **regularització** (com L1/Lasso o L2/Ridge). Aquestes tècniques penalitzen coeficients grans per evitar el sobreajustament. Tanmateix, la penalització s’aplica de forma uniforme, sense considerar l’escala de les característiques.
+
+Si les característiques varien en escala, aquelles amb rangs numèrics més grans seran penalitzades més severament, sense importar-ne la importància real. Això pot portar a una reducció incorrecta de característiques informatives.
+
+Escalant les dades, ens assegurem que la regularització tracti totes les característiques per igual, permetent que el model valori amb més precisió la importància real de cada variable.
+
+:::
+
+## Aleshores, Quan S’hauria d’Escalar les Dades?
+
+Aquí arribem al quid de la qüestió. Tot i que l’escalat és crític per a la majoria d’algoritmes, **no** és un requisit universal.
+
+Algunes excepcions són els **models basats en arbres**. Algoritmes com els Arbres de Decisió, Random Forests i models de Gradient Boosting (com XGBoost) generalment no són sensibles a l’escala de les característiques.
+
+Això es deu al fet que aquests models funcionen fent una sèrie de divisions sobre característiques individuals. Un arbre de decisió formula preguntes com: “És l’ingrés superior a 100.000 €?” o “Té menys de 40 anys?”. La resposta és la mateixa, ja sigui que l’ingrés estigui en euros o en milers d’euros. L’escala de les altres característiques no afecta la divisió que s’escull per a una característica concreta.
+
+Per a gairebé tots els altres casos, però, l’escalat hauria de ser un pas fonamental en el pipeline de modelatge.
+
+## I Ara Què?
+
+Ara que entenem quan i per què l’escalat és un pas fonamental, és moment d’endinsar-nos en el com. En la pròxima entrada, explorarem tres de les tècniques d’escalat més utilitzades—StandardScaler, MinMaxScaler i RobustScaler—a scikit-learn de Python, juntament amb els seus equivalents en R. Cada mètode es demostrarà amb codi pràctic i executable per ajudar a aplicar-los amb confiança als projectes.

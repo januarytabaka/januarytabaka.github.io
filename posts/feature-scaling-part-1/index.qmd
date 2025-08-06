@@ -3,8 +3,9 @@ title: "Feature Scaling Part 1: When (and Why) to Scale Data in Machine Learning
 author: "January Tabaka"
 date: "2025-07-30"
 categories: [Fundamentals, Data Preprocessing, Scaling]
-image: "dist_data_landscape.png"
+image: "/images/dist_data_landscape.png"
 draft: false
+lang: en
 ---
 
 ## The Unseen Bias in Data
@@ -213,7 +214,7 @@ This brings us to the crux of the matter. While scaling is critical for the majo
 
 Some exceptions to the rule are **tree-based models**. Algorithms like Decision Trees, Random Forests, and Gradient Boosting models (like XGBoost) are generally insensitive to the scale of the features.
 
-This is because these models work by making a series of splits on individual features. A decision tree asks questions like, "Is the income greater than $$100,000$?" or "Is the age less than $40$?". The answer to these questions is the same whether the income is measured in dollars or thousands of dollars. The scale of other features has no bearing on the split that is chosen for a particular feature.
+This is because these models work by making a series of splits on individual features. A decision tree asks questions like, "Is the income greater than \$100,000?" or "Is the age less than 40?". The answer to these questions is the same whether the income is measured in dollars or thousands of dollars. The scale of other features has no bearing on the split that is chosen for a particular feature.
 
 For almost everything else, however, scaling should be a critical step in the modeling pipeline.
 

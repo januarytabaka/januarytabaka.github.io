@@ -1,0 +1,20 @@
+---
+title: "AI Scratchpad (CAT)"
+listing:
+  contents: ./posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  include:
+    lang: cat
+page-layout: full
+title-block-banner: true
+---
+
+## Benvingut a AI Scratchpad!
+
+Aquesta és l’edició en català del meu blog, un espai que he creat per a la comunitat de tecnologia i ciència de dades de parla catalana.
+
+Aquest blog és el meu quadern de notes públic on exploro el món de la intel·ligència artificial i l'aprenentatge automàtic (machine learning). La meva filosofia és aprendre fent: construint, experimentant i documentant tot el procés. El meu objectiu és crear guies pràctiques amb codi funcional, i em fa molta il·lusió poder oferir aquest recurs en català.

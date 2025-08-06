@@ -1,9 +1,9 @@
 project:
   type: website
-  output-dir: ../_site
+  output-dir: ../_site/es
 
 website:
-  title: "AI Scratchpad (EN)"
+  title: "AI Scratchpad"
   navbar:
     right:
       - about.qmd
@@ -12,10 +12,8 @@ website:
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
-      - text: "Español"
-        href: https://es.aiscratchpad.com
-      - text: "Catalan"
-        href: https://es.aiscratchpad.com
+      - text: "English"
+        href: https://aiscratchpad.com
   comments:
     giscus:
       repo: januarytabaka/januarytabaka.github.io

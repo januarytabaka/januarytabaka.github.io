@@ -1,0 +1,44 @@
+---
+title: "Política de Privacidad"
+---
+
+Última actualización: 5 de agosto de 2025
+
+Bienvenido a la política de privacidad de **AI Scratchpad**. Tu privacidad es importante para mí, y este documento explica qué datos se recopilan y cómo se utilizan. Mi objetivo es ser lo más transparente posible, respetando siempre tu privacidad.
+
+### En resumen
+
+*   Utilizo una plataforma de analítica enfocada en la privacidad y autoalojada (**Matomo**).
+*   **No** uso cookies de seguimiento.
+*   He **anonimizado** todas las direcciones IP.
+*   Los datos que recopilo se usan únicamente para comprender mejor a mi audiencia y mejorar el contenido. **Nunca** se venden ni se comparten con terceros.
+
+### Analítica
+
+Este sitio web utiliza **Matomo**, una plataforma de analítica autoalojada. A diferencia de Google Analytics, esto significa que todos los datos recopilados se almacenan en mi propio servidor privado y **no se comparten con ninguna otra empresa**.
+
+Se recopila la siguiente información con fines analíticos básicos:
+
+*   **Dirección IP anonimizada:** Tu dirección IP se anonimiza enmascarando los dos últimos bytes (por ejemplo, `192.168.x.x`) antes de ser almacenada. Esto permite detectar la ubicación geográfica general (país/ciudad) sin guardar tu IP personal.
+*   **Información técnica:** Tipo de navegador, sistema operativo y resolución de pantalla.
+*   **Información de uso:** Las páginas que visitas en este sitio, la hora de tu visita y el sitio web de referencia.
+
+Estos datos se utilizan exclusivamente para ayudarme a entender qué contenido es popular y cómo mejorar el sitio web.
+
+### Cookies
+
+Este sitio web está configurado para funcionar **sin cookies**. No se almacenan cookies de analítica en tu navegador.
+
+### Comentarios (Giscus)
+
+El sistema de comentarios de este blog funciona con [Giscus](https://giscus.app/), que utiliza GitHub Discussions. Si decides dejar un comentario, deberás autorizar la aplicación de Giscus e iniciar sesión con tu cuenta de GitHub.
+
+El contenido de tu comentario y la información de tu perfil de GitHub serán visibles públicamente y están sujetos a la política de privacidad de GitHub.
+
+### Tus Derechos (GDPR)
+
+Si resides en el Espacio Económico Europeo (EEE), tienes ciertos derechos de protección de datos. Yo soy el responsable del tratamiento de datos en este sitio web. Si tienes alguna pregunta o deseas ejercer tus derechos, no dudes en contactarme.
+
+### Contacto
+
+Si tienes preguntas sobre esta política de privacidad, puedes escribirme a **aiscratchpad.blog@gmail.com**.
