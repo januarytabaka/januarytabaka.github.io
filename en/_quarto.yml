@@ -11,10 +11,6 @@ website:
         href: https://aiscratchpad.com/
         text: "Home"
     right:
-      - text: "About Me"
-        href: about.qmd
-      - text: "Privacy Policy"
-        href: privacy.qmd
       - text: "Español"
         href: https://aiscratchpad.com/es
       - text: "Catalan"
