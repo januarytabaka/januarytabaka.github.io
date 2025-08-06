@@ -4,14 +4,14 @@ project:
 
 website:
   title: "AI Scratchpad (EN)"
-  navbar:
-    right:
-      - about.qmd
-      - privacy.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "About Me"
+        href: about.qmd
+      - text: "Privacy Policy"
+        href: privacy.qmd
       - text: "Español"
         href: https://aiscratchpad.com/es
       - text: "Catalan"

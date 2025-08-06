@@ -4,14 +4,14 @@ project:
 
 website:
   title: "AI Scratchpad (CAT)"
-  navbar:
-    right:
-      - about.qmd
-      - privacy.qmd
-      - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Sobre Mi"
+        href: about.qmd
+      - text: "Política de Privacitat"
+        href: privacy.qmd
       - text: "English"
         href: https://aiscratchpad.com/en
       - text: "Español"
