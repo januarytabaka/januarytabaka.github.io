@@ -43,7 +43,7 @@ jobs:
         with:
           path: es
 
-      - name: Render Spanish Site (Subdirectory)
+      - name: Render Catalan Site (Subdirectory)
         uses: quarto-dev/quarto-actions/render@v2
         with:
           path: cat
