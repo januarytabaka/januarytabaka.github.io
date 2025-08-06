@@ -15,7 +15,7 @@ website:
       - text: "Español"
         href: https://es.aiscratchpad.com
       - text: "Catalan"
-        href: https://es.aiscratchpad.com
+        href: https://cat.aiscratchpad.com
   comments:
     giscus:
       repo: januarytabaka/januarytabaka.github.io

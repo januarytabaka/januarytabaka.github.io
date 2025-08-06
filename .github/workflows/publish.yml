@@ -48,7 +48,6 @@ jobs:
         with:
           path: cat
 
-      # This is the new, crucial step you were missing
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
