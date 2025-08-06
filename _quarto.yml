@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "AI Scratchpad"
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    include-in-header: _includes/matomo.html
+
+engine: knitr
+knitr:
+  opts_chunk: 
+    engine.path:
+      python: /usr/bin/python3
