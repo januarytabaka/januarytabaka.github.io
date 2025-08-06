@@ -35,8 +35,10 @@ jobs:
       - name: Install Python Dependencies
         run: pip install jupyter scikit-learn pandas matplotlib seaborn PyYAML
 
-      - name: Render English Site (Root)
+      - name: Render English Site
         uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: en
 
       - name: Render Spanish Site (Subdirectory)
         uses: quarto-dev/quarto-actions/render@v2

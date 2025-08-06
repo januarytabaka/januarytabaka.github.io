@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: _site/en
 
 website:
   title: "AI Scratchpad (EN)"
@@ -13,9 +13,9 @@ website:
       - icon: twitter
         href: https://twitter.com
       - text: "Español"
-        href: https://es.aiscratchpad.com
+        href: https://aiscratchpad.com/es
       - text: "Catalan"
-        href: https://cat.aiscratchpad.com
+        href: https://aiscratchpad.com/cat
   comments:
     giscus:
       repo: januarytabaka/januarytabaka.github.io

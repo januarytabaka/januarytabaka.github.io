@@ -3,7 +3,7 @@ project:
   output-dir: _site/cat
 
 website:
-  title: "AI Scratchpad"
+  title: "AI Scratchpad (CAT)"
   navbar:
     right:
       - about.qmd
@@ -13,7 +13,9 @@ website:
       - icon: twitter
         href: https://twitter.com
       - text: "English"
-        href: https://aiscratchpad.com
+        href: https://aiscratchpad.com/en
+      - text: "Español"
+        href: https://aiscratchpad.com/es
   comments:
     giscus:
       repo: januarytabaka/januarytabaka.github.io

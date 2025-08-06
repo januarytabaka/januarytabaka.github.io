@@ -6,14 +6,16 @@ website:
   title: "AI Scratchpad (ES)"
   navbar:
     right:
-      - about_es.qmd
-      - privacy_es.qmd
+      - about.qmd
+      - privacy.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
       - text: "English"
-        href: https://aiscratchpad.com
+        href: https://aiscratchpad.com/en
+      - text: "Catalan"
+        href: https://aiscratchpad.com/cat
   comments:
     giscus:
       repo: januarytabaka/januarytabaka.github.io
