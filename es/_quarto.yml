@@ -3,11 +3,11 @@ project:
   output-dir: _site/es
 
 website:
-  title: "AI Scratchpad"
+  title: "AI Scratchpad (ES)"
   navbar:
     right:
-      - about.qmd
-      - privacy.qmd
+      - about_es.qmd
+      - privacy_es.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
