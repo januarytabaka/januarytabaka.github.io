@@ -50,7 +50,7 @@ page-layout: full
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-<a href="/ca/">
+<a href="/cat/">
 <div class="language-card">
   <h2>Català</h2>
   <p>Explora el blog en català, amb tutorials sobre IA, Aprenentatge Automàtic, Python i R.</p>
