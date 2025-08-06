@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: ../_site/es
+  output-dir: ../_site/cat
 
 website:
   title: "AI Scratchpad"
