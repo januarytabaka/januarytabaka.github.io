@@ -53,11 +53,6 @@ jobs:
         with:
           path: cat
 
-      - name: Create Root Redirect
-        run: |
-          mkdir -p _site
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/en/" /></head></html>' > _site/index.html
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
